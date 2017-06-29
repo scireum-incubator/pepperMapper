@@ -9,7 +9,6 @@ import sirius.web.controller.Controller;
 import sirius.web.controller.DefaultRoute;
 import sirius.web.controller.Routed;
 import sirius.web.http.WebContext;
-import sirius.web.security.LoginRequired;
 import sirius.web.templates.ExcelExport;
 
 
@@ -31,16 +30,18 @@ public class ConvertController extends BasicController {
 
     private ExcelExport convertJSONToXls(String input) {
         ExcelExport excelExport = new ExcelExport();
+        excelExport.addRow("field", "type", "index", "store", "include_in_all", "format");
         JSONObject index = JSONObject.parseObject(input);
         index.forEach((key1, value1) -> {
-            excelExport.addRow();
             JSONObject entity = index.getJSONObject(key1);
-            excelExport.addRow(key1, entity.getJSONObject("routing").get("path"));
+            JSONObject routing = entity.getJSONObject("_routing");
+            excelExport.addRow(key1, routing.isEmpty() ? "" : routing.get("path"));
             JSONObject fields = entity.getJSONObject("properties");
             fields.forEach((key2, value2) -> {
                 JSONObject field = fields.getJSONObject(key2);
                 excelExport.addRow(key2, field.get("type"), field.get("index"), field.get("store"), field.get("include_in_all"), field.get("format"));
             });
+            excelExport.addRow();
         });
         return excelExport;
     }
