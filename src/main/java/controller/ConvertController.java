@@ -35,7 +35,7 @@ public class ConvertController extends BasicController {
         index.forEach((key1, value1) -> {
             JSONObject entity = index.getJSONObject(key1);
             JSONObject routing = entity.getJSONObject("_routing");
-            excelExport.addRow(key1, routing.isEmpty() ? "" : routing.get("path"));
+            excelExport.addRow(key1, routing == null || routing.isEmpty() ? "" : routing.get("path"));
             JSONObject fields = entity.getJSONObject("properties");
             fields.forEach((key2, value2) -> {
                 JSONObject field = fields.getJSONObject(key2);
