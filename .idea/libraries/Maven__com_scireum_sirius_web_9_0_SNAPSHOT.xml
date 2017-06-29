@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.scireum:sirius-web:9.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/scireum/sirius-web/9.0-SNAPSHOT/sirius-web-9.0-20170623.111617-6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/scireum/sirius-web/9.0-SNAPSHOT/sirius-web-9.0-20170623.111617-6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/scireum/sirius-web/9.0-SNAPSHOT/sirius-web-9.0-20170623.111617-6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
